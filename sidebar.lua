@@ -19,23 +19,44 @@ function Div(el)
   end
   if el.classes:includes("rmdwarn") then
     return {
-      pandoc.RawBlock("latex", "\\begin{shaded}\\textcolor[RGB]{234,67,53}{\\textbf{警告}}"),
+      pandoc.RawBlock("latex", "\\begin{rmdwarn}"),
       el,
-      pandoc.RawBlock("latex", "\\end{shaded}")
+      pandoc.RawBlock("latex", "\\end{rmdwarn}")
     }
   end
   if el.classes:includes("rmdnote") then
     return {
-      pandoc.RawBlock("latex", "\\begin{shaded}\\textcolor[RGB]{251,188,5}{\\textbf{注意}}"),
+      pandoc.RawBlock("latex", "\\begin{rmdnote}"),
       el,
-      pandoc.RawBlock("latex", "\\end{shaded}")
+      pandoc.RawBlock("latex", "\\end{rmdnote}")
     }
   end
   if el.classes:includes("rmdtip") then
     return {
-      pandoc.RawBlock("latex", "\\begin{shaded}\\textcolor[RGB]{52,168,83}{\\textbf{提示}}"),
+      pandoc.RawBlock("latex", "\\begin{rmdtip}"),
       el,
-      pandoc.RawBlock("latex", "\\end{shaded}")
+      pandoc.RawBlock("latex", "\\end{rmdtip}")
     }
   end
+--   if el.classes:includes("rmdwarn") then
+--     return {
+--       pandoc.RawBlock("latex", "\\begin{shaded}\\textcolor[RGB]{234,67,53}{\\textbf{警告}}"),
+--       el,
+--       pandoc.RawBlock("latex", "\\end{shaded}")
+--     }
+--   end
+--   if el.classes:includes("rmdnote") then
+--     return {
+--       pandoc.RawBlock("latex", "\\begin{shaded}\\textcolor[RGB]{251,188,5}{\\textbf{注意}}"),
+--       el,
+--       pandoc.RawBlock("latex", "\\end{shaded}")
+--     }
+--   end
+--   if el.classes:includes("rmdtip") then
+--     return {
+--       pandoc.RawBlock("latex", "\\begin{shaded}\\textcolor[RGB]{52,168,83}{\\textbf{提示}}"),
+--       el,
+--       pandoc.RawBlock("latex", "\\end{shaded}")
+--     }
+--   end
 end

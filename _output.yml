@@ -17,7 +17,7 @@ bookdown::gitbook:
     in_header: header.html
 bookdown::pdf_book:
   includes:
-    in_header: preamble.tex
+    in_header: [latex/preamble.tex, latex/titlepage.tex]
   latex_engine: xelatex
   fig_crop: no
   citation_package: none # elegantbook 已经设定好了

@@ -1,0 +1,82 @@
+% font packages for special symbols
+\usepackage{fontawesome,manfnt,bbding}
+\usepackage{textcomp}
+\newcommand{\size}[2]{{\fontsize{#1}{0}\selectfont#2}}
+
+\tcbset{
+	noparskip/.style={before={\pagebreak[0]\parskip=0pt\parindent=0pt}},
+	before skip=-\baselineskip,
+    box align=top,
+    enhanced,
+    breakable,
+    left=0pt,
+    right=0pt,
+    top=2pt,
+    bottom=2pt,
+    opacityframe=0,
+    opacitybacktitle=0.5,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=0mm,
+}
+
+\makeatletter
+\ifdefstring{\ELEGANT@lang}{cn}{
+\newcommand{\rmdnotename}{注意}
+\newcommand{\rmdtipname}{提示}
+\newcommand{\rmdwarnname}{警告}
+}{\relax}
+\ifdefstring{\ELEGANT@lang}{en}{
+%%%%% Use the following if the language is english.
+ \setlength\parindent{2em}
+ \newcommand{\rmdnotename}{Note}
+ \newcommand{\rmdtipname}{Tips}
+ \newcommand{\rmdwarnname}{Warning}
+}{\relax}
+\makeatother
+
+\newenvironment{rmdnote}{
+	% \vspace*{0.5\baselineskip}
+    \par\noindent
+    \makebox[-3pt][r]{\color{red!90}\size{12}{\faPencilSquareO}\,\,}
+    \begin{tcolorbox}[
+    title={\textbf{\color{second}\rmdnotename}},
+    title style={left color=blue!10!green!20!white,right color=yellow!20!blue!20!white},
+    colback=red!10!white,
+    ]
+    \itshape
+}{
+    \end{tcolorbox}
+    \par\ignorespacesafterend
+}
+
+\newenvironment{rmdtip}{
+	% \vspace*{0.5\baselineskip}
+	\par\noindent
+	\makebox[-3pt][r]{\color{red!90}\size{12}{\HandRight}\,\,}
+    \begin{tcolorbox}[
+    enhanced,
+    title={\textbf{\color{second}\rmdtipname}},
+    title style={left color=blue!10!green!20!white,right color=yellow!20!blue!20!white},
+    colback=cyan!10!white,
+    ]
+    \sffamily
+}{
+    \end{tcolorbox}
+    \par\ignorespacesafterend
+}
+
+\newenvironment{rmdwarn}{
+	% \vspace*{0.5\baselineskip}
+	\par\noindent
+	\makebox[-4pt][r]{\color{red!90}\size{8}{\textdbend}\,\,}
+    \begin{tcolorbox}[
+    enhanced,
+    title={\textbf{\color{second}\rmdwarnname}},
+    title style={left color=blue!10!red!20!white,right color=yellow!20!blue!20!white},
+    colback=red!20!white,
+    ]
+    \sffamily
+}{
+    \end{tcolorbox}
+	\par\ignorespacesafterend
+}
